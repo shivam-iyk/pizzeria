@@ -45,12 +45,6 @@ function MenuItem({ pizza, className = "" }) {
   };
 
   const updateQuantity = async (quantity) => {
-    const itemId = cart.items.find((item) => item?.pizza?._id === pizza?._id);
-    if (!itemId) {
-      console.log("Pizza not found");
-      toast.error("Something went wrong!");
-      return;
-    }
     const data = await updateCount(itemId, quantity);
     if (!data.success) {
       toast.error(data.message);
@@ -73,7 +67,7 @@ function MenuItem({ pizza, className = "" }) {
   };
 
   return (
-    <div className={`col-lg-6 ${className}`}>
+    <div className={`col-lg-6 ${className}`} data-product-id={pizza?._id}>
       <div className="border shadow-sm d-flex flex-column gap-2 p-4 pr-0 rounded">
         <div className="d-flex gap-2">
           <div>
