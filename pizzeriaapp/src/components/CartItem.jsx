@@ -28,7 +28,7 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <div className="row border rounded position-relative">
+    <div className="row border rounded position-relative" data-product-id={item?.pizza?._id}>
       {item?.customized && (
         <div className="position-absolute top-0 end-0 p-2 w-auto">
           <div className="rounded-pill bg-dark text-light px-2 badge">
